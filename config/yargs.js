@@ -6,6 +6,13 @@ const argv = require('yargs')
             desc: 'Descripcion de la tarea por hacer'
         }
     })
+    .command('borrar', 'Borra un elemento por hacer', {
+        descripcion: {
+            alias: 'd',
+            demand: true,
+            desc: 'Descripcion de la tarea por hacer'
+        }
+    })
     .command('actualizar', 'Actualiza el estado completado de una tarea', {
         descripcion: {
             alias: 'd',
