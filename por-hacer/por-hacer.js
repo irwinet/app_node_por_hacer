@@ -54,14 +54,24 @@ const crear = (descripcion) => {
 
 const borrar = (descripcion) => {
     cargarDB();
-    let index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
-    if (index >= 0) {
-        listadoPorHacer.splice(index, 1);
+    // let index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
+    // if (index >= 0) {
+    //     listadoPorHacer.splice(index, 1);
+    //     guardarDB();
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+
+    let nuevoListado = listadoPorHacer.filter(tarea => tarea.descripcion !== descripcion);
+    if (listadoPorHacer.length === nuevoListado.length)
+        return false;
+    else {
+        listadoPorHacer = nuevoListado;
         guardarDB();
         return true;
-    } else {
-        return false;
     }
+
 }
 
 module.exports = {
