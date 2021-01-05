@@ -13,7 +13,18 @@ const guardarDB = () => {
     });
 }
 
+const cargarDB = () => {
+    try {
+        listadoPorHacer = require('../db/data.json');
+        // console.log(listadoPorHacer);   
+    } catch (error) {
+        listadoPorHacer = [];
+    }
+}
+
 const crear = (descripcion) => {
+    cargarDB();
+
     let porHacer = {
         descripcion,
         completado: false
